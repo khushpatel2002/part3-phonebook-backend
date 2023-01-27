@@ -4,6 +4,7 @@ const app = express();
 
 const morgan = require("morgan");
 const cors = require("cors");
+app.use(express.static('build'))
 
 app.use(express.json());
 app.use(cors());
@@ -98,6 +99,6 @@ app.post("/api/persons", (request, response) => {
   response.json(person);
 });
 
-const PORT = 3001;
+const PORT = precess.env.PORT || 3001;
 app.listen(PORT);
 console.log(`Server running on port ${PORT}`);
